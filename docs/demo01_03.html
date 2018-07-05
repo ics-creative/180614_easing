@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      width: 750px;
+      height: 405px;
+      background-color: #fbf9eb;
+      text-align: center;
+    }
+    img {
+      margin: 80px 0 0 0;
+    }
+    label {
+      display: block;
+      padding: 10px 0;
+      width: 140px;
+      margin: 20px auto;
+      color: #7e7154;
+      border: 2px solid #e8e4c8;
+      background-color: #f5f2e0;
+      user-select: none;
+      cursor: pointer
+    }
+    label:active {
+      opacity: 0.5;
+    }
+    input {
+      display: none;
+    }
+    
+    /* アニメーション設定 */
+    img {
+      opacity: 1;
+      transition: 1s cubic-bezier(.19, 1, .22, 1);
+    }
+    input[type="checkbox"]:checked + img {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <input id="btn" name="btn" type="checkbox">
+    <img id="mitarashi" src="images/mitarashi_200.png">
+    <label for="btn">Click</label>
+  </section>
+</body>
+</html>

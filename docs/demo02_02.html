@@ -1,0 +1,79 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      width: 750px;
+      height: 405px;
+      background-color: #fbf9eb;
+    }
+    section:before {
+      font-size: 48px;
+      color: #e8e4c8;
+      content: "Hover";
+      position: absolute;
+      padding: 20px 60px;
+      margin: 140px 0 0 240px;
+    }
+    div {
+      width: 650px;
+      height: 305px;
+      top: 50%;
+      left: 50%;
+      position: relative;
+      text-align: center;
+      background-color: #f5f2e0;
+      border: 6px solid #ded8b2;
+    }
+    h2 {
+      margin: 80px 0 10px 0;
+      color: #544012;
+    }
+    p {
+      color: #7e7154;
+      padding: 0 50px;
+      line-height: 2.0;
+    }
+    
+    /* アニメーション設定 */
+    div {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9, 0.9);
+      transition: 0.4s cubic-bezier(.175, .885, .32, 1.275);
+    }
+    h2 {
+      opacity: 0;
+      transition: 0.4s cubic-bezier(0.0, 0.0, 1.0, 1.0) 0.6s;
+    }
+    p {
+      opacity: 0;
+      transition: 0.4s cubic-bezier(0.0, 0.0, 1.0, 1.0) 1s;
+    }
+    div:hover {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1, 1);
+    }
+    div:hover h2 {
+      opacity: 1;
+      transform: translate(0);
+    }
+    div:hover p {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>
+      <h2>ケンタウル祭の夜</h2>
+      <p>ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
+    </div>
+  </section>
+</body>
+</html>
