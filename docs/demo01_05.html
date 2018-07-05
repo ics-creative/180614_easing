@@ -13,10 +13,6 @@
       height: 405px;
       background-color: #fbf9eb;
       text-align: center;
-      display: flex;
-      justify-content: space-evenly;
-    }
-    div {
     }
     img {
       margin: 80px 0 0 0;
@@ -40,34 +36,20 @@
     }
     
     /* アニメーション設定 */
-    img#mitarashi1 {
-      transform: translate(0, -300px) scale(0.1, 1);
-      transition: 0.6s cubic-bezier(.95, .05, .795, .035);
-    }
-    input[type="checkbox"]#btn1:checked + img#mitarashi1 {
-      transform: translate(0, 0) scale(1, 1);
-    }
-    img#mitarashi2 {
+    img {
       opacity: 1;
-      transition: 1s cubic-bezier(.895, .03, .685, .22);
+      transition: 1s cubic-bezier(.19, 1, .22, 1);
     }
-    input[type="checkbox"]#btn2:checked + img#mitarashi2 {
+    input[type="checkbox"]:checked + img {
       opacity: 0;
     }
   </style>
 </head>
 <body>
   <section>
-    <div>
-      <input id="btn1" name="btn" type="checkbox">
-      <img id="mitarashi1" src="images/mitarashi_200.png">
-      <label for="btn1">Click</label>
-    </div>
-    <div>
-      <input id="btn2" name="btn" type="checkbox">
-      <img id="mitarashi2" src="images/mitarashi_200.png">
-      <label for="btn2">Click</label>
-    </div>
+    <input id="btn" name="btn" type="checkbox">
+    <img id="mitarashi" src="images/mitarashi_200.png">
+    <label for="btn">Click</label>
   </section>
 </body>
 </html>
