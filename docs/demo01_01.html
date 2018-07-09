@@ -29,14 +29,6 @@
       display: block;
     }
 
-    /* スマートフォンのサイズだったら */
-    @media (max-width: 720px) {
-      section {
-        /* 半分のサイズで表示させる */
-        transform: scale(0.5, 0.5);
-      }
-    }
-
     /* アフォーダンス表示のため */
     section:before {
       font-size: 48px;
@@ -135,6 +127,24 @@
   el.addEventListener("touchend", (event) => {
     el.classList.remove("motion");
   });
+
+
+  // モバイル対応のための処理
+  window.addEventListener("resize", resize);
+  resize();
+
+  // media query change
+  function resize() {
+    const contentWidth = 750;
+    if (innerWidth < contentWidth) {
+      // スマートフォンのサイズだったら
+      const scale = innerWidth / contentWidth;
+      el.style.transform = `scale(${scale})`;
+    } else {
+      // デスクトップのサイズだったら
+      el.style.transform = null;
+    }
+  }
 </script>
 </body>
 </html>
