@@ -46,6 +46,10 @@
       cursor: pointer
     }
     
+    div {
+      width: 750px;
+    }
+    
     label:active {
       opacity: 0.5;
     }
@@ -66,9 +70,11 @@
 </head>
 <body>
 <section>
-  <input id="btn" name="btn" type="checkbox">
-  <img id="mitarashi" src="images/mitarashi_200.png">
-  <label for="btn">Click or Tap</label>
+  <div>
+    <input id="btn" name="btn" type="checkbox">
+    <img id="mitarashi" src="images/mitarashi_200.png">
+    <label for="btn">Click or Tap</label>
+  </div>
 </section>
 <script>
   const el = document.querySelector("section");
