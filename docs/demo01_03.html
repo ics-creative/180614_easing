@@ -65,10 +65,30 @@
   </style>
 </head>
 <body>
-  <section>
-    <input id="btn" name="btn" type="checkbox">
-    <img id="mitarashi" src="images/mitarashi_200.png">
-    <label for="btn">Click or Tap</label>
-  </section>
+<section>
+  <input id="btn" name="btn" type="checkbox">
+  <img id="mitarashi" src="images/mitarashi_200.png">
+  <label for="btn">Click or Tap</label>
+</section>
+<script>
+  const el = document.querySelector("section");
+
+  // モバイル対応のための処理
+  window.addEventListener("resize", resize);
+  resize();
+
+  // media query change
+  function resize() {
+    const contentWidth = 750;
+    if (innerWidth < contentWidth) {
+      // スマートフォンのサイズだったら
+      const scale = innerWidth / contentWidth;
+      el.style.transform = `scale(${scale})`;
+    } else {
+      // デスクトップのサイズだったら
+      el.style.transform = null;
+    }
+  }
+</script>
 </body>
 </html>

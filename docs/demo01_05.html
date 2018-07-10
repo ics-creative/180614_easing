@@ -29,7 +29,7 @@
       text-align: center;
       display: flex;
       justify-content: space-evenly;
-      overflow: hidden;
+      overflow:hidden;
     }
     
     img {
@@ -77,17 +77,37 @@
   </style>
 </head>
 <body>
-  <section>
-    <div>
-      <input id="btn1" name="btn" type="checkbox">
-      <img id="mitarashi1" src="images/mitarashi_200.png">
-      <label for="btn1">Click or Tap</label>
-    </div>
-    <div>
-      <input id="btn2" name="btn" type="checkbox">
-      <img id="mitarashi2" src="images/mitarashi_200.png">
-      <label for="btn2">Click or Tap</label>
-    </div>
-  </section>
+<section>
+  <div>
+    <input id="btn1" name="btn" type="checkbox">
+    <img id="mitarashi1" src="images/mitarashi_200.png">
+    <label for="btn1">Click or Tap</label>
+  </div>
+  <div>
+    <input id="btn2" name="btn" type="checkbox">
+    <img id="mitarashi2" src="images/mitarashi_200.png">
+    <label for="btn2">Click or Tap</label>
+  </div>
+</section>
+<script>
+  const el = document.querySelector("section");
+
+  // モバイル対応のための処理
+  window.addEventListener("resize", resize);
+  resize();
+
+  // media query change
+  function resize() {
+    const contentWidth = 750;
+    if (innerWidth < contentWidth) {
+      // スマートフォンのサイズだったら
+      const scale = innerWidth / contentWidth;
+      el.style.transform = `scale(${scale})`;
+    } else {
+      // デスクトップのサイズだったら
+      el.style.transform = null;
+    }
+  }
+</script>
 </body>
 </html>
