@@ -1,27 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Animation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+  <meta name="google" value="notranslate" />
+  <title>Easing Demo</title>
   <style>
-    * {
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      /* 画面中央寄せ */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0;
       padding: 0;
+      overflow: hidden;
+      /* ゴシック体で表示 */
+      font-family: sans-serif;
     }
+
     section {
       width: 750px;
       height: 405px;
       background-color: #fbf9eb;
+      display: block;
     }
+
+    /* アフォーダンス表示のため */
     section:before {
       font-size: 48px;
       color: #e8e4c8;
-      content: "Hover";
+      content: "Hover or Touch";
+      text-align: center;
+      width: 100%;
+      top: 50%;
+      left: 50%;
       position: absolute;
-      padding: 20px 60px;
-      margin: 140px 0 0 240px;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
-    div {
+
+    div.block {
       width: 650px;
       height: 305px;
       top: 50%;
@@ -30,50 +52,99 @@
       text-align: center;
       background-color: #f5f2e0;
       border: 6px solid #ded8b2;
+      -webkit-user-select: none;
+      user-select: none;
     }
+
     h2 {
       margin: 80px 0 10px 0;
       color: #544012;
     }
+
     p {
       color: #7e7154;
       padding: 0 50px;
       line-height: 2.0;
     }
-    
+
     /* アニメーション設定 */
-    div {
+    div.block {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.9, 0.9);
       transition: 0.8s cubic-bezier(.19, 1, .22, 1);
     }
+
     h2 {
       opacity: 0;
       transition: 1s cubic-bezier(.19, 1, .22, 1) 0.8s;
     }
+
     p {
       opacity: 0;
       transition: 1s cubic-bezier(.19, 1, .22, 1) 0.8s;
     }
-    div:hover {
+
+    section.motion .block {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1, 1);
     }
-    div:hover h2 {
+
+    section.motion .block h2 {
       opacity: 1;
       transform: translate(0);
     }
-    div:hover p {
+
+    section.motion .block p {
       opacity: 1;
     }
   </style>
 </head>
 <body>
-  <section>
-    <div>
-      <h2>ケンタウル祭の夜</h2>
-      <p>ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
-    </div>
-  </section>
+<section>
+  <div class="block">
+    <h2>ケンタウル祭の夜</h2>
+    <p>ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
+  </div>
+</section>
+
+<script>
+  const el = document.querySelector("section");
+  // マウスのインタラクション
+  el.addEventListener("mouseover", (event) => {
+    el.classList.add("motion");
+  });
+
+  el.addEventListener("mouseout", (event) => {
+    el.classList.remove("motion");
+  });
+
+  // タッチデバイスでのインタラクション
+  el.addEventListener("touchstart", (event) => {
+    el.classList.add("motion");
+    event.preventDefault();
+  });
+
+  el.addEventListener("touchend", (event) => {
+    el.classList.remove("motion");
+  });
+
+
+  // モバイル対応のための処理
+  window.addEventListener("resize", resize);
+  resize();
+
+  // media query change
+  function resize() {
+    const contentWidth = 750;
+    if (innerWidth < contentWidth) {
+      // スマートフォンのサイズだったら
+      const scale = innerWidth / contentWidth;
+      el.style.transform = `scale(${scale})`;
+    } else {
+      // デスクトップのサイズだったら
+      el.style.transform = null;
+    }
+  }
+</script>
 </body>
 </html>
