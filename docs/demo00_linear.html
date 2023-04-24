@@ -30,18 +30,18 @@
       .grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 16px 32px;
       }
 
       h1 {
         margin: 16px 0 16px 0;
       }
       h2 {
-        margin: 16px 0 16px 0;
+        margin: 0;
       }
 
       .sandbox {
-        width: calc(200px + 32px);
+        width: calc(300px + 32px);
         position: relative;
         overflow: hidden;
         background-color: #ded8b2;
@@ -54,7 +54,7 @@
       }
 
       .motion-x {
-        animation: motion-x 1s infinite forwards;
+        animation: motion-x 1.5s infinite forwards;
         animation-timing-function: var(--ease);
       }
 
@@ -63,7 +63,7 @@
           translate: 0%;
         }
         to {
-          translate: 200px;
+          translate: 300px;
         }
       }
     </style>
