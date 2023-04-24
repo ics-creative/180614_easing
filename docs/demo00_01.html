@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0"
+    />
+    <meta name="google" value="notranslate" />
+    <title>Easing Demo</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        /* 画面中央寄せ */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        /* ゴシック体で表示 */
+        font-family: sans-serif;
+        color: #544012;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      h1 {
+        margin: 16px 0 16px 0;
+      }
+      h2 {
+        margin: 16px 0 16px 0;
+      }
+
+      .sandbox {
+        width: calc(100px + 32px);
+        position: relative;
+        overflow: hidden;
+        background-color: #ded8b2;
+      }
+
+      .rect {
+        width: 32px;
+        height: 32px;
+        background: #544012;
+      }
+
+      .motion-x {
+        animation: motion-x 2s infinite forwards;
+        animation-timing-function: var(--ease);
+      }
+
+      @keyframes motion-x {
+        from {
+          translate: 0%;
+        }
+        to {
+          translate: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>CSSイージング関数</h1>
+      <div class="grid">
+        <section>
+          <h2>ease</h2>
+          <div class="sandbox" style="--ease: ease">
+            <div class="rect motion-x"></div>
+          </div>
+        </section>
+        <section>
+          <h2>linear</h2>
+          <div class="sandbox" style="--ease: linear">
+            <div class="rect motion-x"></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>ease-in</h2>
+          <div class="sandbox" style="--ease: ease-in">
+            <div class="rect motion-x"></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>ease-out</h2>
+          <div class="sandbox" style="--ease: ease-out">
+            <div class="rect motion-x"></div>
+          </div>
+        </section>
+        <section>
+          <h2>ease-in-out</h2>
+          <div class="sandbox" style="--ease: ease-in-out">
+            <div class="rect motion-x"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
