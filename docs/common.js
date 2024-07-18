@@ -10,10 +10,10 @@ function resize() {
   if (innerWidth < contentWidth) {
     // スマートフォンのサイズだったら
     const scale = innerWidth / contentWidth;
-    element.style.transform = `scale(${scale})`;
+    element.style.zoom = scale;
   } else {
     // デスクトップのサイズだったら
-    element.style.transform = null;
+    element.style.zoom = null;
   }
 }
 
