@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja" dir="ltr">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" value="notranslate" />
   <title>Easing Demo</title>
   <style>
@@ -21,7 +21,7 @@
       /* ゴシック体で表示 */
       font-family: sans-serif;
     }
-    
+
     section {
       width: 750px;
       height: 405px;
@@ -29,11 +29,11 @@
       text-align: center;
       display: block;
     }
-    
+
     img#mitarashi {
       margin: 80px 0 0 0;
     }
-    
+
     label {
       display: block;
       padding: 10px 0;
@@ -45,19 +45,19 @@
       user-select: none;
       cursor: pointer
     }
-    
-    div.block {
+
+    .block {
       width: 750px;
     }
-    
+
     label:active {
       opacity: 0.5;
     }
-    
+
     input {
       display: none;
     }
-    
+
     /* アニメーション設定 */
     section img#mitarashi {
       opacity: 1;
@@ -71,9 +71,9 @@
 <body>
 <section>
   <div class="block">
-    <input id="btn" name="btn" type="checkbox">
-    <img id="mitarashi" src="images/mitarashi_200.png">
-    <label for="btn">Click or Tap</label>
+    <input id="btn" name="btn" type="checkbox" />
+    <img id="mitarashi" src="images/mitarashi_200.png" />
+    <label for="btn">Click</label>
   </div>
 </section>
 <script>

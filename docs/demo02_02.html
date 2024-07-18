@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja" dir="ltr">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" value="notranslate" />
   <title>Easing Demo</title>
   <style>
@@ -43,7 +43,7 @@
       pointer-events: none;
     }
 
-    div.block {
+    .block {
       width: 650px;
       height: 305px;
       top: 50%;
@@ -69,7 +69,7 @@
     }
 
     /* アニメーション設定 */
-    div.block {
+    .block {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.9, 0.9);
       transition: 0.4s cubic-bezier(.175, .885, .32, 1.275);
