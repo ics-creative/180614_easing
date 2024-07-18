@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" value="notranslate"/>
+  <title>透明度の変化の違い（easeOut版）</title>
+  <link rel="stylesheet" href="common.css"/>
+  <style>
+    /* アニメーション設定 */
+    .block {
+      opacity: 0;
+      scale: 0.9;
+      transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); /* easeOutExpo */
+    }
+
+    h2 {
+      opacity: 0;
+      transition: 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); /* easeOutCubic */
+      transition-delay: 0s;
+    }
+
+    p {
+      opacity: 0;
+      transition: 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); /* easeOutCubic */
+      transition-delay: 0s;
+    }
+
+    .motion {
+      .block {
+        opacity: 1;
+        scale: 1;
+
+        h2 {
+          opacity: 1;
+          transition-delay: 0.6s;
+        }
+
+        p {
+          opacity: 1;
+          transition-delay: 1.0s;
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+<section class="sectionA">
+  <div class="block">
+    <h2>ケンタウル祭の夜</h2>
+    <p>
+      ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
+  </div>
+</section>
+<script src="common.js"></script>
+<script>
+  setupHoverAndTap();
+</script>
+</body>
+</html>

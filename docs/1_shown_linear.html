@@ -4,42 +4,20 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google" value="notranslate"/>
-  <title>透明度の変化の違い（等速版）</title>
+  <title>Easing Demo</title>
   <link rel="stylesheet" href="common.css"/>
   <style>
     /* アニメーション設定 */
     .block {
       opacity: 0;
-      scale: 0.9;
-      transition: 0.6s ease;
-    }
-
-    h2 {
-      opacity: 0;
-      transition: 0.4s linear; /* ★イージングを等速に指定 */
-      transition-delay: 0s;
-    }
-
-    p {
-      opacity: 0;
-      transition: 0.4s linear; /* ★イージングを等速に指定 */
-      transition-delay: 0s;
+      scale: 0.8;
+      transition: 0.6s linear;
     }
 
     .motion {
       .block {
         opacity: 1;
         scale: 1;
-
-        h2 {
-          opacity: 1;
-          transition-delay: 0.6s;
-        }
-
-        p {
-          opacity: 1;
-          transition-delay: 1.0s;
-        }
       }
     }
   </style>
@@ -52,6 +30,7 @@
       ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
   </div>
 </section>
+
 <script src="common.js"></script>
 <script>
   setupHoverAndTap();

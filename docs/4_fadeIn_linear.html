@@ -4,25 +4,25 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google" value="notranslate"/>
-  <title>透明度の変化の違い（easeOut版）</title>
+  <title>透明度の変化の違い（等速版）</title>
   <link rel="stylesheet" href="common.css"/>
   <style>
     /* アニメーション設定 */
     .block {
       opacity: 0;
       scale: 0.9;
-      transition: 0.6s ease;
+      transition: 1.5s cubic-bezier(0.19, 1, 0.22, 1); /* easeOutExpo */
     }
 
     h2 {
       opacity: 0;
-      transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1); /* easeOutCubic */
+      transition: 0.6s linear; /* ★イージングを等速に指定 */
       transition-delay: 0s;
     }
 
     p {
       opacity: 0;
-      transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1); /* easeOutCubic */
+      transition: 0.6s linear; /* ★イージングを等速に指定 */
       transition-delay: 0s;
     }
 
