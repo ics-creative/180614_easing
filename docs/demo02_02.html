@@ -1,151 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google" value="notranslate" />
-  <title>Easing Demo</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" value="notranslate"/>
+  <title>透明度の変化の違い（等速版）</title>
+  <link rel="stylesheet" href="common.css"/>
   <style>
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      /* 画面中央寄せ */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      /* ゴシック体で表示 */
-      font-family: sans-serif;
-    }
-
-    section {
-      width: 750px;
-      height: 405px;
-      background-color: #fbf9eb;
-      display: block;
-    }
-
-    /* アフォーダンス表示のため */
-    section:before {
-      font-size: 48px;
-      color: #e8e4c8;
-      content: "Hover or Touch";
-      text-align: center;
-      width: 100%;
-      top: 50%;
-      left: 50%;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-
-    .block {
-      width: 650px;
-      height: 305px;
-      top: 50%;
-      left: 50%;
-      position: relative;
-      text-align: center;
-      background-color: #f5f2e0;
-      border: 6px solid #ded8b2;
-      -webkit-user-select: none;
-      user-select: none;
-      margin: 0 100px 0 0;
-    }
-
-    h2 {
-      margin: 80px 0 10px 0;
-      color: #544012;
-    }
-
-    p {
-      color: #7e7154;
-      padding: 0 50px;
-      line-height: 2.0;
-    }
-
     /* アニメーション設定 */
     .block {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.9, 0.9);
-      transition: 0.4s cubic-bezier(.175, .885, .32, 1.275);
+      scale: 0.9;
+      transition: 0.6s ease;
     }
 
     h2 {
       opacity: 0;
-      transition: 0.4s cubic-bezier(0.0, 0.0, 1.0, 1.0) 0.6s;
+      transition: 0.4s linear; /* ★イージングを等速に指定 */
+      transition-delay: 0s;
     }
 
     p {
       opacity: 0;
-      transition: 0.4s cubic-bezier(0.0, 0.0, 1.0, 1.0) 1s;
+      transition: 0.4s linear; /* ★イージングを等速に指定 */
+      transition-delay: 0s;
     }
 
-    section.motion .block {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1, 1);
-    }
+    .motion {
+      .block {
+        opacity: 1;
+        scale: 1;
 
-    section.motion .block h2 {
-      opacity: 1;
-      transform: translate(0);
-    }
+        h2 {
+          opacity: 1;
+          transition-delay: 0.6s;
+        }
 
-    section.motion .block p {
-      opacity: 1;
+        p {
+          opacity: 1;
+          transition-delay: 1.0s;
+        }
+      }
     }
   </style>
 </head>
 <body>
-<section>
+<section class="sectionA">
   <div class="block">
     <h2>ケンタウル祭の夜</h2>
-    <p>ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
+    <p>
+      ジョバンニは、口笛を吹いているようなさびしい口付きで、檜のまっ黒にならんだ町の坂を下りて来たのでした。坂の下に大きな一つの街燈が、青白く立派に光って立っていました。</p>
   </div>
 </section>
-
+<script src="common.js"></script>
 <script>
-  const el = document.querySelector("section");
-  // マウスのインタラクション
-  el.addEventListener("mouseover", (event) => {
-    el.classList.add("motion");
-  });
-
-  el.addEventListener("mouseout", (event) => {
-    el.classList.remove("motion");
-  });
-
-  // タッチデバイスでのインタラクション
-  el.addEventListener("touchstart", (event) => {
-    el.classList.add("motion");
-    event.preventDefault();
-  });
-
-  el.addEventListener("touchend", (event) => {
-    el.classList.remove("motion");
-  });
-
-
-  // モバイル対応のための処理
-  window.addEventListener("resize", resize);
-  resize();
-
-  // media query change
-  function resize() {
-    const contentWidth = 750;
-    if (innerWidth < contentWidth) {
-      // スマートフォンのサイズだったら
-      const scale = innerWidth / contentWidth;
-      el.style.transform = `scale(${scale})`;
-    } else {
-      // デスクトップのサイズだったら
-      el.style.transform = null;
-    }
-  }
+  setupHoverAndTap();
 </script>
 </body>
 </html>

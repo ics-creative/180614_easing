@@ -1,0 +1,99 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* ゴシック体で表示 */
+  font-family: sans-serif;
+  /* 画面中央寄せ */
+  display: grid;
+  place-items: center;
+}
+
+
+h2 {
+  margin: 80px 0 10px 0;
+  color: #544012;
+}
+
+p {
+  color: #7e7154;
+  padding: 0 50px;
+  line-height: 2.0;
+  word-break: auto-phrase;
+}
+
+.sectionA {
+  width: 750px;
+  height: 405px;
+  background-color: #fbf9eb;
+
+  display: grid;
+  place-items: center;
+
+  .block {
+    width: 650px;
+    height: 305px;
+    position: relative;
+    text-align: center;
+    background-color: #f5f2e0;
+    border: 6px solid #ded8b2;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* アフォーダンス表示のため */
+
+  &:before {
+    font-size: 48px;
+    color: #e8e4c8;
+    content: "Hover or Touch";
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+  }
+}
+
+
+.sectionB {
+  width: 750px;
+  height: 405px;
+  background-color: #fbf9eb;
+  text-align: center;
+
+  display: grid;
+  place-items: center;
+}
+
+
+.labelButton {
+  display: block;
+  padding: 12px 36px;
+  margin: 20px auto;
+  color: #7e7154;
+  border: 2px solid #e8e4c8;
+  background-color: #f5f2e0;
+  user-select: none;
+  cursor: pointer;
+
+  &:active {
+    background-color: #e8e4c8;
+  }
+}
+
+.sectionC {
+  width: 750px;
+  height: 405px;
+  background-color: #fbf9eb;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}

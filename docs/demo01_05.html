@@ -1,118 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google" value="notranslate" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" value="notranslate"/>
   <title>Easing Demo</title>
+  <link rel="stylesheet" href="common.css"/>
   <style>
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      /* 画面中央寄せ */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      /* ゴシック体で表示 */
-      font-family: sans-serif;
-    }
-
-    section {
-      width: 750px;
-      height: 405px;
-      background-color: #fbf9eb;
-      text-align: center;
-      display: flex;
-      justify-content: space-evenly;
-    }
 
     .block {
-      width: 375px;
-      height: 405px;
-      overflow:hidden;
-    }
-
-    img {
-      margin: 80px 0 0 0;
-    }
-
-    label {
-      display: block;
-      padding: 10px 0;
-      width: 140px;
-      margin: 20px auto;
-      color: #7e7154;
-      border: 2px solid #e8e4c8;
-      background-color: #f5f2e0;
-      user-select: none;
-      cursor: pointer
-    }
-
-    label:active {
-      opacity: 0.5;
-    }
-
-    input {
-      display: none;
+      overflow: hidden;
+      padding-top: 100px;
     }
 
     /* アニメーション設定 */
-    img#mitarashi1 {
-      transform: translate(0, -300px) scale(0.1, 1);
-      transition: 0.6s cubic-bezier(.95, .05, .795, .035);
+    #mitarashi1 {
+      translate: 0 -300px;
+      scale: 0.1 1;
+
+      transition: 0.6s cubic-bezier(0.95, 0.05, 0.795, 0.035); /* easeInExpo */
     }
 
-    input[type="checkbox"]#btn1:checked + img#mitarashi1 {
-      transform: translate(0, 0) scale(1, 1);
+    .block:has(:checked) #mitarashi1 {
+      translate: 0 0;
+      scale: 1;
     }
 
-    img#mitarashi2 {
+
+    #mitarashi2 {
       opacity: 1;
-      transition: 1s cubic-bezier(.895, .03, .685, .22);
+
+      transition: 1s cubic-bezier(0.95, 0.05, 0.795, 0.035); /* easeInExpo */
     }
 
-    input[type="checkbox"]#btn2:checked + img#mitarashi2 {
+    .block:has(:checked) #mitarashi2 {
       opacity: 0;
     }
   </style>
 </head>
 <body>
-<section>
+<section class="sectionC">
   <div class="block">
-    <input id="btn1" name="btn" type="checkbox" />
-    <img id="mitarashi1" src="images/mitarashi_200.png" />
-    <label for="btn1">Click</label>
+    <img id="mitarashi1" src="images/mitarashi_200.png" alt=""/>
+    <label class="labelButton">
+      <input type="checkbox" checked/>
+      Shown
+    </label>
   </div>
   <div class="block">
-    <input id="btn2" name="btn" type="checkbox" />
-    <img id="mitarashi2" src="images/mitarashi_200.png" />
-    <label for="btn2">Click</label>
+    <img id="mitarashi2" src="images/mitarashi_200.png" alt=""/>
+    <label class="labelButton">
+      <input type="checkbox" checked/>
+      Shown</label>
   </div>
 </section>
-<script>
-  const el = document.querySelector("section");
-
-  // モバイル対応のための処理
-  window.addEventListener("resize", resize);
-  resize();
-
-  // media query change
-  function resize() {
-    const contentWidth = 750;
-    if (innerWidth < contentWidth) {
-      // スマートフォンのサイズだったら
-      const scale = innerWidth / contentWidth;
-      el.style.transform = `scale(${scale})`;
-    } else {
-      // デスクトップのサイズだったら
-      el.style.transform = null;
-    }
-  }
-</script>
+<script src="common.js"></script>
 </body>
 </html>
