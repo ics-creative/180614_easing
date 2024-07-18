@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    /* --------- D: background-sizeのアニメーション ----------------------------------- */
+    .backgroundImage {
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%; /* 文字の長さに合わせる */
+        height: 25px; /* 線の太さ */
+        bottom: -5px; /* オフセット */
+        left: 0;
+        background-color: #05c66222;
+        transform: scaleX(0);
+        transform-origin: left top;
+        transition: transform 0.6s;
+        transition-timing-function: var(--ease);
+      }
+    }
+
+    section:hover {
+      .backgroundImage {
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+<div>
+  ※各テキストにホバーしてみてください。
+
+  <section>
+
+    <h1>linear</h1>
+    <p class="textWrapper">
+      すると<span class="backgroundImage" style="--ease: linear">小さなきれいな声で、誰か歌いだしたものがあります</span>。
+    </p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h1>ease-in</h1>
+    <p class="textWrapper">
+      すると<span class="backgroundImage" style="--ease: ease-in">小さなきれいな声で、誰か歌いだしたものがあります</span>。
+    </p>
+
+  </section>
+
+  <section>
+    <h1>ease-out</h1>
+    <p class="textWrapper">
+      すると<span class="backgroundImage"
+                  style="--ease: ease-out">小さなきれいな声で、誰か歌いだしたものがあります</span>。
+    </p>
+
+  </section>
+
+  <section>
+    <h1>ease-in-out</h1>
+    <p class="textWrapper">
+      すると<span class="backgroundImage"
+                  style="--ease: ease-in-out">小さなきれいな声で、誰か歌いだしたものがあります</span>。
+    </p>
+
+  </section>
+
+  <hr>
+
+
+  <section>
+    <h1>ease</h1>
+    <p class="textWrapper">
+      すると<span class="backgroundImage" style="--ease: ease">小さなきれいな声で、誰か歌いだしたものがあります</span>。
+    </p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h1>cubic-bezier()</h1>
+    <p class="textWrapper">
+      すると<span class="backgroundImage" style="--ease: cubic-bezier(0.19, 1, 0.22, 1)">小さなきれいな声で、誰か歌いだしたものがあります</span>。
+    </p>
+  </section>
+
+</div>
+</body>
+</html>

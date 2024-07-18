@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+
+    label {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .cb {
+      appearance: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 2px solid #888;
+      position: relative;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-grid;
+      place-items: center;
+
+      box-shadow: 0 0 0 0 #3223b322;
+
+      &:hover {
+        border: 2px solid #3223b3;
+        box-shadow: 0 0 0 4px #3223b322;
+      }
+
+      &:checked {
+        border: 2px solid #3223b3;
+
+        &::before {
+          scale: 1;
+          opacity: 1;
+        }
+      }
+
+      &::before {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="%233223b3" stroke-width="6" d="M2 12l5 5L20 4"/></svg>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        width: 24px;
+        height: 24px;
+        content: "";
+        display: block;
+
+        position: relative;
+        left: 2px;
+        top: 0px;
+        scale: 0.75;
+        opacity: 0;
+        transition: 0.4s;
+        transition-timing-function: var(--ease);
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+<div>
+  ※各チェックボックスをチェックしてみてください。
+
+  <section style="--ease: linear">
+    <h1>linear</h1>
+    <label><input type="checkbox" class="cb"/>チェックボックス</label>
+  </section>
+
+  <hr>
+
+  <section style="--ease: ease-in">
+    <h1>ease-in</h1>
+    <label><input type="checkbox" class="cb"/>チェックボックス</label>
+  </section>
+  <section style="--ease: ease-out">
+    <h1>ease-out</h1>
+    <label><input type="checkbox" class="cb"/>チェックボックス</label>
+  </section>
+
+  <section style="--ease: ease-in-out">
+    <h1>ease-in-out</h1>
+    <label><input type="checkbox" class="cb"/>チェックボックス</label>
+  </section>
+
+  <hr>
+
+  <section style="--ease: ease">
+    <h1>ease</h1>
+    <label><input type="checkbox" class="cb"/>チェックボックス</label>
+  </section>
+  <hr>
+
+  <section style="--ease: cubic-bezier(0.19, 1, 0.22, 1)">
+    <h1>cubic-bezier()</h1>
+    <label><input type="checkbox" class="cb"/>チェックボックス</label>
+  </section>
+
+
+</div>
+</body>
+</html>
