@@ -83,10 +83,6 @@ p {
   background-color: #f5f2e0;
   user-select: none;
   cursor: pointer;
-
-  &:active {
-    background-color: #e8e4c8;
-  }
 }
 
 .sectionC {
