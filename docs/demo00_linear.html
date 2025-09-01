@@ -2,8 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="google" value="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Easing Demo</title>
     <style>
       html,
@@ -57,11 +56,18 @@
 
       @keyframes motion-x {
         from {
-          translate: 0%;
+          translate: 0;
         }
         to {
           translate: 300px;
         }
+      }
+      :root {
+/* ぼよんぼよんする動き */
+--ease-elastic-out: linear(0, 0.2178 2.1%, 1.1144 8.49%, 1.2959 10.7%, 1.3463 11.81%, 1.3705 12.94%, 1.3726, 1.3643 14.48%, 1.3151 16.2%, 1.0317 21.81%, 0.941 24.01%, 0.8912 25.91%, 0.8694 27.84%, 0.8698 29.21%, 0.8824 30.71%, 1.0122 38.33%, 1.0357, 1.046 42.71%, 1.0416 45.7%, 0.9961 53.26%, 0.9839 57.54%, 0.9853 60.71%, 1.0012 68.14%, 1.0056 72.24%, 0.9981 86.66%, 1);
+
+/* バウンス */
+--ease-bounce-out: linear(0, 0.004, 0.016, 0.035, 0.063 9.1%, 0.141, 0.25, 0.391, 0.563, 0.765, 1, 0.891, 0.813 45.5%, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785, 0.813 63.6%, 0.891, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953, 0.973, 1, 0.988, 0.984, 0.988, 1);
       }
     </style>
   </head>
@@ -87,10 +93,20 @@
         </section>
 
         <section>
-          <h2>linear()でぼよんぼよんする動き</h2>
+          <h2>linear()でぼよんぼよん</h2>
           <div
             class="sandbox"
-            style="--ease: linear(0, 1.32, 0.87, 1.05, 0.98, 1.01, 1, 1)"
+            style="--ease: var(--ease-elastic-out)"
+          >
+            <div class="rect motion-x"></div>
+          </div>
+        </section>
+
+        <section>
+          <h2>linear()でバウンス</h2>
+          <div
+            class="sandbox"
+             style="--ease: var(--ease-bounce-out)"
           >
             <div class="rect motion-x"></div>
           </div>
