@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background: #eee;
+  color: black;
+  overflow: hidden;
+}
+
+#root {
+  /* 画面サイズにフィット */
+  transform-origin: 0 0;
+  scale: tan(atan2(100dvw, 720px))
+}
+
+.demo-container {
+  background-color: white;
+  position: relative;
+  width: 720px;
+  height: 405px;
+  overflow: hidden;
+
+  p {
+    position: absolute;
+    left: 0;
+    top: 360px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: solid 3px black;
+    border-radius: 50%;
+    translate: -50% -50%;
+  }
+}
